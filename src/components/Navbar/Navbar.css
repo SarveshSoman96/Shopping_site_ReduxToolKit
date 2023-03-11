@@ -1,0 +1,14 @@
+.navbar_container{
+    padding: 1rem 0;
+    background-color: #725ac1;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.nav_block{
+    display: flex;
+    align-items: center; 
+}

@@ -1,0 +1,30 @@
+.cart_heading{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #725ac1;
+}
+
+.cart_heading a{
+    display: inline-block;
+    /* margin-top: 1rem; */
+    padding: 9px 10px;
+    border-radius: 10px;
+    background-color: #725ac1;
+    color: #fff;
+    border: 1px solid transparent;
+    transition: 0.2s;
+}
+.cart_heading a:hover{
+    border: 1px solid #725ac1;
+    background-color: transparent;
+    color: #725ac1;
+}
+.cart_listing{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
