@@ -8,7 +8,7 @@ import CartProduct from '../../components/CartProduct/CartProduct';
 
 const Cart = () => {
 
-  const Cart = useSelector(state => state.cart)
+  const Cart = useSelector(state => state.cart.cart)
 
   return (
     <>

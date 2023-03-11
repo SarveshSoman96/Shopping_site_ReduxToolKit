@@ -1,12 +1,13 @@
 import { useSelector , useDispatch} from 'react-redux';
 import "./SingleProduct.css";
 import { addToCart , removeFromCart} from "../../RTK Store/CartSlice";
-// import { cleanUpSingleProduct } from '../../RTK Store/SingleProductSlice';
 
 const SingleProduct = () => {
 
   const dispatch = useDispatch();
-  const stateData = useSelector(state => state.product);
+
+  const state = useSelector(state => state.product.productInfo);
+  const loading = useSelector(state => state.product);
  
   const addToCartHandler = (product) => {
       dispatch(addToCart(product))
@@ -15,7 +16,6 @@ const SingleProduct = () => {
   const removeFromCartHandler = (productData) => {
       dispatch(removeFromCart(productData))
   };
-  
 
     return (
       <>
@@ -23,26 +23,26 @@ const SingleProduct = () => {
           <div className="wrapper">
             <div className="data_container">
               <div className="product_image_block">
-                <img src={stateData.productInfo.image} alt="" />
+                <img src={state.image} alt="" />
               </div>
               <div className="product_full_info_container">
-                <h1>{stateData.productInfo.title}</h1>
-                <p>{stateData.productInfo.description}</p>
-                <p>{stateData.productInfo.category}</p>
-                <p>${stateData.productInfo.price}</p>
+                <h1>{state.title}</h1>
+                <p>{state.description}</p>
+                <p>{state.category}</p>
+                <p>${state.price}</p>
                 <p>
-                  {stateData.productInfo.rating.rate}/
-                  {stateData.productInfo.rating.count} Ratings
+                  {state.rating.rate}/
+                  {state.rating.count} Ratings
                 </p>
 
                 <div className="btns_container">
                   <button
                     className="addToCart"
-                    onClick={(e) => addToCartHandler(stateData)}
+                    onClick={(e) => addToCartHandler(state)}
                   >
                     Add to cart
                   </button>
-                  <button className="removefromcart" onClick={(e) => removeFromCartHandler(stateData.id)}>Remove From cart</button>
+                  <button className="removefromcart" onClick={(e) => removeFromCartHandler(state.id)}>Remove From cart</button>
                 </div>
               </div>
             </div>
@@ -50,6 +50,7 @@ const SingleProduct = () => {
         </div>
       </>
     );
+ 
 
 }
 
