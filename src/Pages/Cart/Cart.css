@@ -9,7 +9,6 @@
 
 .cart_heading a{
     display: inline-block;
-    /* margin-top: 1rem; */
     padding: 9px 10px;
     border-radius: 10px;
     background-color: #725ac1;
@@ -23,8 +22,29 @@
     color: #725ac1;
 }
 .cart_listing{
-    margin-top: 2rem;
+    margin: 2rem 0;
     display: flex;
     flex-direction: column;
     gap: 2rem;
 }
+.checkout{
+    padding: 2rem 0;
+    border-top: 1px solid #725ac1;
+}
+.checkout p{
+    font-size: 1.2rem;
+}
+.checkout p span{
+    font-size: 1.5rem;
+    color: #725ac1;
+}
+.checkout button{
+    all: unset;
+    display: inline-block;
+    padding: 9px 25px;
+    border-radius: 5px;
+    background-color: #725ac1;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 10px;
+ }

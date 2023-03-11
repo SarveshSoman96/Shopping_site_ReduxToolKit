@@ -4,7 +4,7 @@ import "./Navbar.css";
 
 const Navbar = () => {
 
-  const cartItems = useSelector(state => state.cart.cart)
+  const cartItems = useSelector(state => state.cart.totalQty)
 
   const navMenuStyle = ({isActive}) => {
     return{
@@ -33,7 +33,7 @@ const Navbar = () => {
               <NavLink to="/shoppingcart" style={navMenuStyle}>Cart</NavLink>
             </li>
             <li style={{display: "inline-block", marginLeft: "1rem", color: "#fff"}}>
-              <b>Cart Items: {cartItems.length}</b>
+              <b>Cart Items: {cartItems}</b>
             </li>
    
           </ul>

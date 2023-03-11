@@ -8,16 +8,13 @@ import { fetchAllProduct } from '../../RTK Store/CartSlice';
 const Home = () => {
   // const [products, setProducts] = useState([]);
   const dispatch = useDispatch();
-  const allProducts = useSelector(state => state.cart.products)
-  const [loading, setLoading] = useState(true);
+  const { products, error, loading } = useSelector(state => state.cart)
+  // const [loading, setLoading] = useState(true);
 
 
   useEffect(() => {
-    let isLoaded = true;
-    if(isLoaded){
-    dispatch(fetchAllProduct())
-    setLoading(false)
-    }
+
+      dispatch(fetchAllProduct())
   }, [])
 
   return (
@@ -35,11 +32,13 @@ const Home = () => {
     {/* produc list */}
       
     {
-      loading ? <Loading /> : (
+      loading ? <Loading /> : error ? (
+        <h2>Someting error occured. </h2>
+      ) : ( 
         <div className="products_listing_container">
           <div className="wrapper">
             <div className="product_grid">
-                { allProducts.map( product => (
+                { products.map( product => (
                   <Product key={product.id} product={product} />
                 )) }
             </div>

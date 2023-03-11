@@ -7,14 +7,15 @@ const SingleProduct = () => {
   const dispatch = useDispatch();
 
   const state = useSelector(state => state.product.productInfo);
-  const loading = useSelector(state => state.product);
+  const { id, title, description, price, image, category} = state;
  
   const addToCartHandler = (product) => {
       dispatch(addToCart(product))
 };
 
-  const removeFromCartHandler = (productData) => {
-      dispatch(removeFromCart(productData))
+  const removeFromCartHandler = (item) => {
+    // console.log(item)
+      dispatch(removeFromCart(item))
   };
 
     return (
@@ -23,13 +24,13 @@ const SingleProduct = () => {
           <div className="wrapper">
             <div className="data_container">
               <div className="product_image_block">
-                <img src={state.image} alt="" />
+                <img src={image} alt="" />
               </div>
               <div className="product_full_info_container">
-                <h1>{state.title}</h1>
-                <p>{state.description}</p>
-                <p>{state.category}</p>
-                <p>${state.price}</p>
+                <h1>{title}</h1>
+                <p>{description}</p>
+                <p>{category}</p>
+                <p>${price}</p>
 
                 <div className="btns_container">
                   <button
@@ -38,7 +39,7 @@ const SingleProduct = () => {
                   >
                     Add to cart
                   </button>
-                  <button className="removefromcart" onClick={(e) => removeFromCartHandler(state.id)}>Remove From cart</button>
+                  <button className="removefromcart" onClick={(e) => removeFromCartHandler(state)}>Remove From cart</button>
                 </div>
               </div>
             </div>
