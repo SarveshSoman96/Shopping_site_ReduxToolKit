@@ -30,10 +30,6 @@ const SingleProduct = () => {
                 <p>{state.description}</p>
                 <p>{state.category}</p>
                 <p>${state.price}</p>
-                <p>
-                  {state.rating.rate}/
-                  {state.rating.count} Ratings
-                </p>
 
                 <div className="btns_container">
                   <button
