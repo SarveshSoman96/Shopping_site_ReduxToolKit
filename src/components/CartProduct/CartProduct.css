@@ -33,6 +33,8 @@
     all: unset;
     color: #725ac1;
     cursor: pointer;
+    width: 20px;
+    height: 20px;
 }
 
 .quantity_buttons button.removecartbtn{

@@ -5,9 +5,9 @@ import './index.css';
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import userStore from "./RTK Store/CartStore";
-import { getCartTotal } from './RTK Store/CartSlice';
+import { fetchAllProduct } from './RTK Store/CartSlice';
 
-userStore.dispatch(getCartTotal())
+userStore.dispatch(fetchAllProduct())
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={userStore}>

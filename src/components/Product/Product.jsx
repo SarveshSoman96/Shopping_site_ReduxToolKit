@@ -3,7 +3,7 @@ import { addToCart } from "../../RTK Store/CartSlice";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { fetchProductInfo } from "../../RTK Store/SingleProductSlice";
-
+import { getCartTotal } from "../../RTK Store/CartSlice";
 
 const Product = ({product}) => {
 
@@ -12,6 +12,7 @@ const Product = ({product}) => {
 
   const addToCartHandler = (product) => {
         dispatchAction(addToCart(product))
+        dispatchAction(getCartTotal())
   };
 
   return (
@@ -45,7 +46,9 @@ const Product = ({product}) => {
           </Link>
           <button
             className="addToCart"
-            onClick={(e) => addToCartHandler(product)}
+            onClick={(e) => {
+              addToCartHandler(product)
+            }}
           >
             Add to Cart
           </button>

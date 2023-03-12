@@ -9,30 +9,33 @@ export const fetchProductInfo = createAsyncThunk("fetchProductInfo", async (id) 
 const singleProduct = createSlice({
     name: "product",
     initialState:{
-            productInfo: {},
+            productInfo: localStorage.getItem("productInfo") ? JSON.parse(localStorage.getItem("productInfo")) : {},
             error: false,
             loading: false,
         },
+
     reducers: {
         cleanUpSingleProduct(state, action){
-            return state.productInfo = []
+            state.productInfo = {}
         }
     },
+
     extraReducers: (builder) => {
     
         builder.addCase(fetchProductInfo.pending, (state, action) => {
             state.loading = true
-            // console.log("call is pending state")
         })
         builder.addCase(fetchProductInfo.fulfilled, (state, action) => {
+            const productDataReceived = {...action.payload}
+            localStorage.setItem("productInfo", JSON.stringify(productDataReceived))
             state.loading = false
-            state.productInfo = {...action.payload}
+            // state.productInfo = {...action.payload}
             // console.log("call is fullfilled")
         })
         builder.addCase(fetchProductInfo.rejected, (state, action) => {
             state.error = true
             state.loading = false
-            console.log("error occured", action.payload)
+            // console.log("error occured", action.payload)
         })
 
     }
@@ -40,4 +43,4 @@ const singleProduct = createSlice({
 })
 
 export default singleProduct.reducer;
-export const cleanUpSingleProduct  = singleProduct.actions;
+export const { cleanUpSingleProduct }  = singleProduct.actions;

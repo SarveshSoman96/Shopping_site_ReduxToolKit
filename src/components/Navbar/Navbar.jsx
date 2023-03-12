@@ -1,10 +1,11 @@
 import { NavLink , Link} from 'react-router-dom';
-import { useSelector } from "react-redux";
+import { useSelector , useDispatch} from "react-redux";
 import "./Navbar.css";
+import CartItems from '../CartItems/CartItems';
 
 const Navbar = () => {
 
-  const cartItems = useSelector(state => state.cart.totalQty)
+  // const cartItems = useSelector(state => state.cart.totalQty)
 
   const navMenuStyle = ({isActive}) => {
     return{
@@ -26,15 +27,10 @@ const Navbar = () => {
             <li style={{display: "inline-block", marginLeft: "1rem"}}>
               <NavLink to="/" style={navMenuStyle}>Home</NavLink>
             </li>
-            <li style={{display: "inline-block", marginLeft: "1rem",}}>
-              <NavLink to="/productscatagories" style={navMenuStyle}>Catagories</NavLink>
-            </li>
             <li style={{display: "inline-block", marginLeft: "1rem"}}>
               <NavLink to="/shoppingcart" style={navMenuStyle}>Cart</NavLink>
             </li>
-            <li style={{display: "inline-block", marginLeft: "1rem", color: "#fff"}}>
-              <b>Cart Items: {cartItems}</b>
-            </li>
+            <CartItems />
    
           </ul>
         </div>

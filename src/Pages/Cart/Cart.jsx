@@ -6,6 +6,7 @@ import CartProduct from "../../components/CartProduct/CartProduct";
 import { getCartTotal } from "../../RTK Store/CartSlice";
 
 const Cart = () => {
+
   const dispatch = useDispatch()
   const {cart, cartTotal} = useSelector((state) => state.cart);
   

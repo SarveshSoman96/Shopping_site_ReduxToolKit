@@ -6,16 +6,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchAllProduct } from '../../RTK Store/CartSlice';
 
 const Home = () => {
-  // const [products, setProducts] = useState([]);
+
   const dispatch = useDispatch();
-  const { products, error, loading } = useSelector(state => state.cart)
-  // const [loading, setLoading] = useState(true);
+  const { error, loading } = useSelector(state => state.cart)
+  const productsData = JSON.parse(localStorage.getItem("products"))
 
+  
 
-  useEffect(() => {
+  // useEffect(() => {
 
-      dispatch(fetchAllProduct())
-  }, [])
+  //     dispatch(fetchAllProduct())
+      
+  // }, [])
 
   return (
     <>
@@ -38,7 +40,7 @@ const Home = () => {
         <div className="products_listing_container">
           <div className="wrapper">
             <div className="product_grid">
-                { products.map( product => (
+                { productsData.map( product => (
                   <Product key={product.id} product={product} />
                 )) }
             </div>
