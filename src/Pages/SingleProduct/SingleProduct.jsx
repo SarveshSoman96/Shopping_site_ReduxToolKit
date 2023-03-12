@@ -1,10 +1,8 @@
 import { useSelector , useDispatch} from 'react-redux';
-import { useParams } from "react-router-dom";
 import "./SingleProduct.css";
 import { addToCart , removeFromCart, getCartTotal} from "../../RTK Store/CartSlice";
 import { useEffect } from 'react';
-import { cleanUpSingleProduct , fetchProductInfo} from '../../RTK Store/SingleProductSlice';
-// import { fetchProductInfo } from '../../RTK Store/SingleProductSlice';
+import { cleanUpSingleProduct } from '../../RTK Store/SingleProductSlice';
 
 const SingleProduct = () => {
 
@@ -34,7 +32,7 @@ const SingleProduct = () => {
     return () => {
       dispatch(cleanUpSingleProduct())
     }
-  }, [])
+  })
   
   
 
