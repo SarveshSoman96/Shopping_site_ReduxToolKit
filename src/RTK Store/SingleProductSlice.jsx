@@ -9,7 +9,7 @@ export const fetchProductInfo = createAsyncThunk("fetchProductInfo", async (id) 
 const singleProduct = createSlice({
     name: "product",
     initialState:{
-            productInfo: localStorage.getItem("productInfo") !== null ? JSON.parse(localStorage.getItem("productInfo")) : {},
+            productInfo:{},
             error: false,
             loading: false,
         },
@@ -25,13 +25,15 @@ const singleProduct = createSlice({
         builder.addCase(fetchProductInfo.pending, (state, action) => {
             state.loading = true
         })
+
         builder.addCase(fetchProductInfo.fulfilled, (state, action) => {
-            const productDataReceived = {...action.payload}
-            localStorage.setItem("productInfo", JSON.stringify(productDataReceived))
+            // const productDataReceived = {...action.payload}
+            // localStorage.setItem("productInfo", JSON.stringify(productDataReceived))
+            state.productInfo = {...action.payload}
             state.loading = false
-            // state.productInfo = {...action.payload}
             // console.log("call is fullfilled")
         })
+
         builder.addCase(fetchProductInfo.rejected, (state, action) => {
             state.error = true
             state.loading = false

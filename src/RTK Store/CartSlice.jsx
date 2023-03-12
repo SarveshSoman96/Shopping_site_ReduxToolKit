@@ -9,10 +9,8 @@ export const fetchAllProduct = createAsyncThunk("fetchProducts", async() => {
 const productSlice = createSlice({
   name: "userCart",
   initialState: {
-    allProducts: localStorage.getItem("products") !== null ? JSON.parse(localStorage.getItem("products")) : [],
-    cart: localStorage.getItem("cart") !== null
-      ? JSON.parse(localStorage.getItem("cart"))
-      : [],
+    allProducts: [],
+    cart: [],
     totalQty: 0,
     cartTotal: 0,
     error: false,
@@ -31,7 +29,7 @@ const productSlice = createSlice({
         state.cart.push(tempProduct);
       }
 
-      localStorage.setItem("cart", JSON.stringify(state.cart));
+      // localStorage.setItem("cart", JSON.stringify(state.cart));
     },
     removeFromCart(state, action) {
       const removeItems = state.cart.filter(
@@ -39,7 +37,7 @@ const productSlice = createSlice({
       );
 
       state.cart = removeItems;
-      localStorage.setItem("cart", JSON.stringify(state.cart))
+      // localStorage.setItem("cart", JSON.stringify(state.cart))
     },
 
     decreaseItemQuantity(state, action) {
@@ -57,7 +55,7 @@ const productSlice = createSlice({
         state.cart = cartItems;
       }
 
-      localStorage.setItem("cart", JSON.stringify(state.cart))
+      // localStorage.setItem("cart", JSON.stringify(state.cart))
     },
     getCartTotal(state, action) {
       const { cartTotalPrice, cartQty } = state.cart.reduce(
@@ -86,8 +84,8 @@ const productSlice = createSlice({
       state.loading = true;
     });
     builder.addCase(fetchAllProduct.fulfilled, (state, action) => {
-      localStorage.setItem("products", JSON.stringify(action.payload));
-      // state.products = action.payload;
+      // localStorage.setItem("products", JSON.stringify(action.payload));
+      state.allProducts = action.payload;
       state.loading = false;
     });
     builder.addCase(fetchAllProduct.rejected, (state, action) => {

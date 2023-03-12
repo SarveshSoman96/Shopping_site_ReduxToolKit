@@ -3,11 +3,10 @@ import "./Home.css";
 import Product from "../../components/Product/Product";
 import Loading from '../../components/Loading/Loading';
 import { useDispatch, useSelector } from "react-redux";
-import { fetchAllProduct } from '../../RTK Store/CartSlice';
+
 
 const Home = () => {
 
-  const dispatch = useDispatch();
   const { allProducts, error, loading } = useSelector(state => state.cart)
   // const productsData = JSON.parse(localStorage.getItem("products"))
 
