@@ -11,13 +11,6 @@ const Home = () => {
   const { error, loading } = useSelector(state => state.cart)
   const productsData = JSON.parse(localStorage.getItem("products"))
 
-  
-
-  // useEffect(() => {
-
-  //     dispatch(fetchAllProduct())
-      
-  // }, [])
 
   return (
     <>

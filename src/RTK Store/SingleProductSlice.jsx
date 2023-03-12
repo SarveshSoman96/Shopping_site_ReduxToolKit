@@ -9,7 +9,7 @@ export const fetchProductInfo = createAsyncThunk("fetchProductInfo", async (id) 
 const singleProduct = createSlice({
     name: "product",
     initialState:{
-            productInfo: localStorage.getItem("productInfo") ? JSON.parse(localStorage.getItem("productInfo")) : {},
+            productInfo: localStorage.getItem("productInfo") !== null ? JSON.parse(localStorage.getItem("productInfo")) : {},
             error: false,
             loading: false,
         },

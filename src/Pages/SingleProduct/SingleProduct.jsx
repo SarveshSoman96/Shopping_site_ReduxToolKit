@@ -7,11 +7,10 @@ import { cleanUpSingleProduct } from '../../RTK Store/SingleProductSlice';
 const SingleProduct = () => {
 
   const dispatch = useDispatch();
-  // const { id } = useParams();
 
-  const { productInfo, loading } = useSelector(state => state.product);
-  // const product = JSON.parse(localStorage.getItem("productInfo"))
-  const { title, description, price, image, category} = productInfo;
+  const { loading } = useSelector(state => state.product);
+  const product = JSON.parse(localStorage.getItem("productInfo"))
+  const { title, description, price, image, category} = product;
  
   const addToCartHandler = (product) => {
       dispatch(addToCart(product))
@@ -32,7 +31,7 @@ const SingleProduct = () => {
     return () => {
       dispatch(cleanUpSingleProduct())
     }
-  })
+  }, [])
   
   
 
@@ -57,11 +56,11 @@ const SingleProduct = () => {
                       <div className="btns_container">
                         <button
                           className="addToCart"
-                          onClick={(e) => addToCartHandler(productInfo)}
+                          onClick={(e) => addToCartHandler(product)}
                         >
                           Add to cart
                         </button>
-                        <button className="removefromcart" onClick={(e) => removeFromCartHandler(productInfo)}>Remove From cart</button>
+                        <button className="removefromcart" onClick={(e) => removeFromCartHandler(product)}>Remove From cart</button>
                       </div>
                     </div>
                   </>

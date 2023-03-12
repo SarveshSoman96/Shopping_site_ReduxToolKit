@@ -9,7 +9,7 @@ export const fetchAllProduct = createAsyncThunk("fetchProducts", async() => {
 const productSlice = createSlice({
   name: "userCart",
   initialState: {
-    cart: localStorage.getItem("cart")
+    cart: localStorage.getItem("cart") !== null
       ? JSON.parse(localStorage.getItem("cart"))
       : [],
     totalQty: 0,
