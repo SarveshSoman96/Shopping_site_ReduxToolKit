@@ -1,0 +1,36 @@
+.backdrop, .modalInfo{
+    display: grid;
+    place-items: center;
+}
+.backdrop{
+    position: fixed;
+    inset: 0;
+    height: 100vh;
+    z-index: 5;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+
+.modal-block{
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 10;
+    width: 40%;
+    height: 200px;
+    border-radius: 20px;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    padding: 1rem;
+}
+
+.modalInfo{
+    text-align: center;
+    height: 100%;
+    color: #725ac1;
+    font-size: 1.2rem;
+    font-style: italic;
+    user-select: none;
+}

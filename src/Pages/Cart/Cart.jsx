@@ -1,25 +1,33 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "./Cart.css";
 import CartProduct from "../../components/CartProduct/CartProduct";
-import { getCartTotal } from "../../RTK Store/CartSlice";
+import { getCartTotal, clearCart } from "../../RTK Store/CartSlice";
+import CheckOutModal from "../../components/CheckOutModal/CheckOutModal";
 
 const Cart = () => {
 
+  const [modalOpen, setModalOpen] = useState(false)
   const dispatch = useDispatch()
   const {cart, cartTotal} = useSelector((state) => state.cart);
   // const cartProducts = JSON.parse(localStorage.getItem("cart"))
   // const { title, description, price, image, category} = cartProducts;
   
   useEffect(() => {
+
     dispatch(getCartTotal())
 
   }, [cart, dispatch])
   
+  const modalOpenHandler = (e) => {
+    setModalOpen(prev => !prev)
+    dispatch(clearCart())
+  };
 
   return (
-   
+    <>
+      {modalOpen && <CheckOutModal onClose={setModalOpen} />}
       <div className="cart_container">
         <div className="wrapper">
           <div className="cart_details_block">
@@ -46,7 +54,7 @@ const Cart = () => {
             </div>
             <div className="checkout">
                 <p>You cart total is: <span>${cartTotal.toFixed(2)}</span> </p>
-                <button>CheckOut</button>
+                <button onClick={modalOpenHandler}>CheckOut</button>
             </div>
             </>
             )}
@@ -55,6 +63,7 @@ const Cart = () => {
           </div>
         </div>
       </div>
+      </>
   );
 };
 

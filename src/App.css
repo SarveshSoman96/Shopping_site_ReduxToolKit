@@ -3,3 +3,6 @@
   padding: 0 100px;
   margin-inline: auto;
 }
+.App{
+  position: relative;
+}
