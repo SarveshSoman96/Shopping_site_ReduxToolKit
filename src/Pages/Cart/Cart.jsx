@@ -8,7 +8,9 @@ import { getCartTotal } from "../../RTK Store/CartSlice";
 const Cart = () => {
 
   const dispatch = useDispatch()
-  const {cart, cartTotal} = useSelector((state) => state.cart);
+  const {cartTotal} = useSelector((state) => state.cart);
+  const cartProducts = JSON.parse(localStorage.getItem("cart"))
+  const { title, description, price, image, category} = cartProducts;
   
   useEffect(() => {
     dispatch(getCartTotal())
@@ -21,7 +23,7 @@ const Cart = () => {
       <div className="cart_container">
         <div className="wrapper">
           <div className="cart_details_block">
-            {cart.length === 0 ? (
+            {cartProducts.length === 0 ? (
               <div className="cart_heading">
             
                 <h3>Cart looks too light. Shop something</h3>
@@ -38,7 +40,7 @@ const Cart = () => {
 
             <div className="cart_listing">
 
-              {cart?.map((cartItem) => (
+              {cartProducts?.map((cartItem) => (
                 <CartProduct key={cartItem.id} cartItem={cartItem} />
               ))}
             </div>
