@@ -31,6 +31,18 @@
     height: 100%;
     color: #725ac1;
     font-size: 1.2rem;
-    font-style: italic;
+    /* font-style: italic; */
     user-select: none;
+}
+
+.close_modal_btn{
+    all: unset;
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    padding: 3px;
+    background: #725ac1;
+    color: #fff;
+    border-radius: 3px 5px;
+    cursor: pointer;
 }

@@ -1,7 +1,7 @@
 .navbar_container{
     padding: 1rem 0;
     background-color: #725ac1;
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     right: 0;

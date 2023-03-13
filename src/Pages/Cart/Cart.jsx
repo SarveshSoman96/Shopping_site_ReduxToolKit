@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Cart.css";
 import CartProduct from "../../components/CartProduct/CartProduct";
 import { getCartTotal, clearCart } from "../../RTK Store/CartSlice";
 import CheckOutModal from "../../components/CheckOutModal/CheckOutModal";
 
 const Cart = () => {
-
+  
+  const navigate = useNavigate();
   const [modalOpen, setModalOpen] = useState(false)
   const dispatch = useDispatch()
   const {cart, cartTotal} = useSelector((state) => state.cart);
@@ -25,9 +26,14 @@ const Cart = () => {
     dispatch(clearCart())
   };
 
+  const modalCloseHandler = () => {
+    setModalOpen(prev => !prev)
+    navigate("/")
+  };
+
   return (
     <>
-      {modalOpen && <CheckOutModal onClose={setModalOpen} />}
+      {modalOpen && <CheckOutModal onClose={modalCloseHandler} />}
       <div className="cart_container">
         <div className="wrapper">
           <div className="cart_details_block">

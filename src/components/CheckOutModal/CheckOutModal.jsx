@@ -1,18 +1,15 @@
 import "./CheckOutModal.css";
 import ReactDOM from "react-dom";
 
-const BackDrop = ({children}) => {
-    return (
-        <div className="backdrop"/>
-    )
-}
-
-const ModalInfoWrapper = ({children}) => {
+const ModalInfoWrapper = ({onClose}) => {
 
     return (
-        <div className="modal-block">
-            <div className="modalInfo">
-                <p>Congratulations!. <br /> Your order placed successfully. </p>
+        <div className="backdrop">
+            <div className="modal-block">
+                <div className="modalInfo">
+                    <p>Congratulations!. <br /> Your order placed successfully. </p>
+                    <button className="close_modal_btn" onClick={(e) => onClose()}>X</button>
+                </div>
             </div>
         </div>
     )
@@ -20,11 +17,10 @@ const ModalInfoWrapper = ({children}) => {
 
 const portalLocation = document.getElementById("checkoutmodal")
 
-const CheckOutModal = (props) => {
+const CheckOutModal = ({onClose}) => {
   return (
     <>
-        {ReactDOM.createPortal(<BackDrop/>, portalLocation)}
-        {ReactDOM.createPortal(<ModalInfoWrapper>{props.children}</ModalInfoWrapper>, portalLocation)}
+        {ReactDOM.createPortal(<ModalInfoWrapper onClose={onClose}></ModalInfoWrapper>, portalLocation)}
 
     </>
   )
