@@ -5,7 +5,7 @@
     background: #978bc1;
     background-size: cover;
     color: #fff;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(Images/shopping_banner_bg.jpg) no-repeat center;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url(../../assets/Images/shopping_banner_bg.jpg) no-repeat center;
     background-size: cover;
 }
 
