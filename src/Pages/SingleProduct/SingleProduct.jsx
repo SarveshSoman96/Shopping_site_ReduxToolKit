@@ -12,9 +12,9 @@ import { Link } from "react-router-dom";
 const SingleProduct = () => {
   const dispatch = useDispatch();
 
-  const { loading } = useSelector((state) => state.product);
-  const product = JSON.parse(localStorage.getItem("productInfo"));
-  const { title, description, price, image, category } = product;
+  const { productInfo, loading } = useSelector((state) => state.product);
+  // const product = JSON.parse(localStorage.getItem("productInfo"));
+  const { title, description, price, image, category } = productInfo;
 
   const addToCartHandler = (product) => {
     dispatch(addToCart(product));
