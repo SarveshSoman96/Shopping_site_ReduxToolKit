@@ -60,13 +60,13 @@ const SingleProduct = () => {
                     <div className="btns_container">
                       <button
                         className="addToCart"
-                        onClick={(e) => addToCartHandler(product)}
+                        onClick={(e) => addToCartHandler(productInfo)}
                       >
                         Add to cart
                       </button>
                       <button
                         className="removefromcart"
-                        onClick={(e) => removeFromCartHandler(product)}
+                        onClick={(e) => removeFromCartHandler(productInfo)}
                       >
                         Remove From cart
                       </button>
