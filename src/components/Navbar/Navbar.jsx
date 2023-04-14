@@ -23,7 +23,7 @@ const Navbar = () => {
             <Link to="/" style={{color: "#fff"}}>Fake Shop Stop</Link>
           </h2>
 
-          <ul style={{ marginLeft: "auto" }}>
+          <ul className='navList'>
             <li style={{display: "inline-block", marginLeft: "1rem"}}>
               <NavLink to="/" style={navMenuStyle}>Home</NavLink>
             </li>

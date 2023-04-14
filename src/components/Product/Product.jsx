@@ -33,7 +33,7 @@ const Product = ({product}) => {
       <div className="prod_info_btns">
         <div className="product_info">
           <p>{title}</p>
-          <p style={{ margin: "20px 0" }}>Price: ${price}</p>
+          <p className="product_price">Price: ${price}</p>
         </div>
         <div className="action_buttons">
           <Link
