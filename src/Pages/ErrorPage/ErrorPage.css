@@ -1,0 +1,17 @@
+.ErrorPage_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+}
+
+.ErrorPage_container .Error_content a{
+    display: inline-block;
+    padding: 9px 10px;
+    border-radius: 10px;
+    background-color: #725ac1;
+    color: #fff;
+    border: 1px solid transparent;
+    transition: 0.2s;
+    margin: 1rem auto 0;
+}
